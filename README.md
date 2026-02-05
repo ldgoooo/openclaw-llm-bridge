@@ -41,21 +41,6 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ### 管理端（需 `Authorization: Bearer <ADMIN_TOKEN>`）
 
 - **POST /admin/keys** — 创建 Key（body: `api_key`, `user_name`, `balance_tokens`, `status`）
-~~~
-
-curl -X POST "http://127.0.0.1:8000/admin/keys" \
-  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "api_key": "sk-my-user-key-001",
-    "user_name": "张三",
-    "balance_tokens": 10000,
-    "status": "active"
-  }'
-
-
-
-~~~
 - **GET /admin/keys** — 列出所有 Key 及余额
 - **PATCH /admin/keys/{api_key}** — 充值（`balance_tokens` 累加）或冻结（`status`）
 
@@ -84,4 +69,3 @@ utils/
 ## License
 
 MIT
-
